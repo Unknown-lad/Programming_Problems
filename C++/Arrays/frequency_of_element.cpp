@@ -9,7 +9,7 @@ int main(){
     int temp[5];
 
     for(i=0;i<len;i++){
-        
+        cout<<a[i];
     }
 
 return 0;
