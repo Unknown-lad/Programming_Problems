@@ -10,7 +10,6 @@ int main(){
 
     for(i=0;i<len;i++){
         cout<<a[i];
-        
     }
 
 return 0;
