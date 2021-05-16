@@ -2,32 +2,32 @@
 using namespace std;
 
 int main(){
-
-    int arr[100],i,size,loc;
+    int arr[100];
+    int size,i;
     cin>>size;
 
     for(i=0;i<size;i++){
-        cout<<i<<": ";
         cin>>arr[i];
     }
 
-    int item;
-    cout<<"Item: ";
+    int item,loc;
+    cout<<"item: ";
     cin>>item;
 
     for(i=0;i<size;i++){
-        if(item<arr[i]){
+        if(arr[i]==item){
             loc=i;
-            break;
         }
     }
 
-    for(i=size-1;i>=loc-1;i--){
-        arr[i+1]=arr[i];
-        arr[loc]=item;
+    cout<<"location: "<<loc<<endl;
+
+    for(i=loc+1;i<size;i++){
+        arr[i-1]=arr[i];
     }
 
-    for(i=0;i<=size;i++){
+    cout<<endl;
+    for(i=0;i<size-1;i++){
         cout<<arr[i]<<" ";
     }
 
