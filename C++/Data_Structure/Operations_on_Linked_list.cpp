@@ -47,10 +47,6 @@ bool search(node* head,int key){
     }
 }
 
-void delete_item(node* &head, int val){
-    
-}
-
 void display(node* head){
     node* temp = head;
     while(temp!=NULL){
