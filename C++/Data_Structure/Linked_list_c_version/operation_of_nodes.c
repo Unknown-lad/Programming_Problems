@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 /*
-1. insert_list()
-2. insert_at_head()
-3. insert_at_tail()
-4. insert_at_given_key()
+1. insert_list() ☑️
+2. insert_at_head() ☑️
+3. insert_at_tail() ☑️
+4. insert_at_given_key() 
 5. delete_at_head()
 6. delete_at_tail()
 7. delete_at_given_key()
+8. reverse_the_node() ☑️
 */
 
 struct node
@@ -54,7 +55,7 @@ void insert_at_tail(int val){
     newnode->next=0;
     temp->next=newnode;
 }
-
+//not yet finished 😞
 void insert_at_given_key(int val){
     newnode = (struct node*)malloc(sizeof(struct node));
     newnode->data=val;
@@ -83,7 +84,21 @@ int count_nodes(){
         count++;
         current=current->next;
     }
-    printf("%d ",count);
+    printf("Count: %d",count);
+}
+
+void reverse_the_node(){
+    struct node* prev, *current, *next_node;
+    prev=NULL;
+    current=next_node=head;
+
+    while (next_node!=0){
+        next_node=next_node->next;
+        current->next=prev;
+        prev=current;
+        current=next_node;
+    }
+    head=prev;
 }
 
 void display(){
@@ -101,13 +116,15 @@ int main(){
     
     insert_list(1);
     insert_list(2);
+    insert_list(3);
+    insert_list(4);
     insert_at_tail(5);
     insert_at_head(0);
-    insert_at_given_key(33);
     display();
-    printf("No. of nodes: ");   
     count_nodes();
     printf("\n");
+    reverse_the_node();
+    display();
 
 return 0;
 }
