@@ -55,7 +55,22 @@ void del_head(node* &head){
     delete to_del;
 }
 
-void del_tail(node* &head,int val){
+void reverse_list(node* &head){
+    node* temp = head;
+    node* prev, *next_node, *current_node;
+    prev=NULL;
+    current_node=next_node=head;
+
+    while(current_node!=NULL){
+        next_node=next_node->next;
+        current_node->next=prev;
+        prev=current_node;
+        current_node=next_node;
+    }
+    head=prev;
+}
+
+void del_key(node* &head,int val){
     node* temp = head;
     while(temp->next->data!=val){
         temp=temp->next;
@@ -113,11 +128,14 @@ int main(){
     //delete head
     del_head(head);
     display(head);
-    del_tail(head,4);
+    del_key(head,5);
     count(head);
     cout<<"\n";
     display(head);
     count(head);
+    cout<<"\nReverse:";
+    reverse_list(head);
+    display(head);
     cout<<"\n";
 
 return 0;
